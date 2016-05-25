@@ -1,0 +1,85 @@
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  color: #384047;
+}
+
+.transcript {
+  margin: 0px auto;
+  padding-top: 10px;
+  text-align: center;
+}
+video::-webkit-media-controls {
+  display: none;
+}
+
+.controls {
+  width: 100%;
+  height: 50%;
+  position:relative;
+}
+.controls[data-state=hidden] {
+   display:none;
+}
+
+.controls[data-state=visible] {
+   display:block;
+}
+
+.controls > * {
+   float:left;
+   width:3.90625%;
+   height:100%;
+   margin-left:0.1953125%;
+   display:block;
+}
+
+.controls > *:first-child {
+   margin-left:0;
+}
+
+.controls .progress {
+   cursor:pointer;
+   width:75.390625%;
+}
+
+.controls button {
+   border:none;
+   cursor:pointer;
+   background:transparent;
+   background-size:contain;
+   background-repeat:no-repeat;
+}
+
+.controls button:hover,
+.controls button:focus {
+   opacity:0.5;
+}
+
+progress {
+   display:block;
+   width:100%;
+   height: 10px;
+   margin-top:0.125rem;
+   border:none;
+   color:#0095dd;
+   background-color: rgba(15,15,15,0.760784);
+   -moz-border-radius:2px;
+   -webkit-border-radius:2px;
+   border-radius:2px;
+}
+/*.controls progress[data-state="fake"] {
+   background:#e6e6e6;
+   height:65%;
+}
+.controls progress span {
+   width:0%;
+   height:100%;
+   display:inline-block;
+   background-color:#2a84cd;
+}*/
