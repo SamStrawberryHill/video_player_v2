@@ -1,67 +1,190 @@
+/* Global Style */
+
 *, *:before, *:after {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-.wrapper {
-  width: 100%;
-}
+
 body {
+  width: 100%;
   font-family: 'Nunito', sans-serif;
   color: #384047;
 }
 .video {
   margin: auto;
   width: 100%;
+  z-index: 10000;
 }
 #video {
   width: 100%;
 }
+#video-player {
+
+  margin: 0 auto;
+  background: #fff;
+  max-width: 800px;
+  max-height: 450px;
+}
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+
+/* Controls */
+
 #video-controls {
-  background: black;
-  opacity: .6;
-  position: relative;
+  position: static;
+  background: rgba(0, 0, 0, .5);
   width: 100%;
-  height: 20px;
-  bottom: 40px;
-  margin: auto;
-  color: white;
+  height: 80px;
+  bottom: 95px;
+  left: 0;
+  margin: -95px auto;
+  z-index: 10000000000;
+}
+button#playpause,
+button#button-pause,
+#time-current,
+#time-duration {
+	position: relative;
+	top: 40px;
+  float: left;
+}
+
+#time-duration {
+  margin-left: 5px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#time-current {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#time-duration:hover,
+#time-current:hover {
+  cursor: default;
+}
+button#button-fullscreen,
+button#volume-on,
+button#volume-off,
+#volume-bar {
+  position: relative;
+  top: 40px;
+  float: right;
+}
+button#playpause {
+  background: url(../images/icons/play-icon.png) no-repeat top left;
+  height: 26px;
+  width: 26px;
+  border: none;
+  left: 20px;
+}
+button#button-pause {
+  background: url(../images/icons/pause-icon.png) no-repeat top left;
+  height: 26px;
+  width: 26px;
+  border: none;
+  display: none;
+  left: 20px;
+}
+
+button#button-fullscreen {
+  background: url(../images/icons/fullscreen-icon.png) no-repeat top left;
+  height: 26px;
+  width: 26px;
+  border: none;
+  right: 20px;
+}
+button#volume-on {
+  background: url(../images/icons/volume-on-icon.png) no-repeat top left;
+  height: 26px;
+  width: 26px;
+  border: none;
+  right: 40px;
+}
+button#volume-off {
+  background: url(../images/icons/volume-off-icon.png) no-repeat top left;
+  height: 26px;
+  width: 26px;
+  border: none;
+  right: 40px;
+  display: none;
+}
+#on,
+#off {
+    margin-top: 15px;
+}
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 3px;
+}
+#time-current,
+#time-duration {
+	color: #fff;
+	font-size: 18px;
+  display: inline-block;
+	bottom: 8px;
+	left: 45px;
 }
 .progress {
-  background-color: black;
-  width: 60%;
-  position: relative;
-  left: 10px;
+    position: relative;
+	  margin: 0 2.5% 0 2.5%;
+    width: 95%;
+    height: 5px;
+    background: rgba(0,0,0,0.6);
+	  bottom: 70px;
+    z-index: 1000;
 }
-#progress {
-  width: 60%;
-  height: 20px;
-  position: absolute;
-  left: 0;
-  z-index: 1;
-  opacity: .6;
-  background-color: red;
+#time {
+    position: absolute;
+    width: 0;
+    height: 100%;
+    background-color: rgba(240,149,0,1.00);
 }
 #buffer {
-  background-color: orange;
-   width: 60%;
-   height: 20px;
-   position: absolute;
-   left: 0;
+    position: absolute;
+    width: 0;
+    height: 100%;
+    background-color: rgba(156,153,153,1.00);
 }
-#playpause,
-#mute,
-#caption-button,
-#volume-bar,
-#playback-speed,
-#full-screen {
-    background: transparent;
-    border: none;
+#volume-bar {
+  bottom: 10px;
+  width: 100px;
+  height: 26px;
+  background: rgba(0, 0, 0, 0.6);
+  float: right;
+  right: 30px;
 }
+#volume-slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(240,149,0,1.00);
+}
+/* Transcript */
 .transcript {
+  padding-top: 100px;
+}
+.transcript p {
     margin: auto;
     width: 90%;
     font-family: 'Nunito', sans-serif;
     font-size: 1em;
     text-align: center;
+    padding-top: 15px;
 }

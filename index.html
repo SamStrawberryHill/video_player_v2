@@ -1,36 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Video Player</title>
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
-    <title>Interactive Video Player</title>
   </head>
   <body>
     <header></header>
-    <figure id="wrapper">
+    <div id="video-player" class="clearfix">
       <video id="video">
         <source src="video/video.mp4" type="video/mp4">
         <source src="video/video.ogg" type="video/ogg">
         <track id="captions" label="English" kind="subtitles" srclang="en" src="video/captions.vtt" default>
       </video>
-      <div id="video-controls" class="controls" data-state="hidden">
-        <button id="playpause" type="button" data-state="play"><img src="icons/play-icon.png" alt="play"></button>
-        <div class="progress">
-          <div id="buffer"></div>
-          <progress id="progress" max="100" value="0" min="0"></progress>
-        </div>
-        <span id="current-time"></span> / <span id="duration-time"></span>
-        <button type="button" id="caption-button">CC</button>
-        <button type="button" id="playback-speed">1.5x</button>
-        <button id="mute" type="button" data-state="mute"><img src="icons/volume-off-icon.png"></button>
-        <input type="range" id="volume-bar" min="0" max="1" step="0.1" value=".5">
-        <button id="fs" type="button" data-state="go-fullscreen"><img src="icons/fullscreen-icon.png"></button>
+      <div class="progress" class="clearfix">
+        <div id="buffer"></div>
+        <div id="time"></div>
+        <progress id="progress" max="100" value="0"></progress>
       </div>
-    </figure>
-    <div class="transcript">
+      <div id="video-controls" class="controls">
+        <div class="left-control">
+          <button id="playpause" type="button" title="Play"></button>
+          <button id="button-pause" type="button" title="Pause"></button>
+          <div id="time-current" title="Current time"><span class="time">0:00 /</span></div>
+          <div id="time-duration" title="Duration"><span class="time">0:00</span></div>
+        </div>
+        <div class="right-control">
+            <button id="button-fullscreen" type="button" title="Fullscreen"></button>
+          <div id="volume-bar" title="Volume bar"></div>
+            <div id="volume-slide"></div>
+        </div>
+        <button id="volume-on" type="button" title="Volume on"></button>
+        <button id="volume-off" type="button" title="Volume off"></button>
+      </div>
+    </div>
+    <div class="transcript" class="clearfix">
       <p>
         Now that we've looked at the architecture
       of the internet, let's see how you might
@@ -95,6 +102,6 @@
     </div>
     <footer></footer>
     <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
-    <script src="js/app.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
   </body>
 </html>
