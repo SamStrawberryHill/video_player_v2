@@ -1,0 +1,67 @@
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.wrapper {
+  width: 100%;
+}
+body {
+  font-family: 'Nunito', sans-serif;
+  color: #384047;
+}
+.video {
+  margin: auto;
+  width: 100%;
+}
+#video {
+  width: 100%;
+}
+#video-controls {
+  background: black;
+  opacity: .6;
+  position: relative;
+  width: 100%;
+  height: 20px;
+  bottom: 40px;
+  margin: auto;
+  color: white;
+}
+.progress {
+  background-color: black;
+  width: 60%;
+  position: relative;
+  left: 10px;
+}
+#progress {
+  width: 60%;
+  height: 20px;
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  opacity: .6;
+  background-color: red;
+}
+#buffer {
+  background-color: orange;
+   width: 60%;
+   height: 20px;
+   position: absolute;
+   left: 0;
+}
+#playpause,
+#mute,
+#caption-button,
+#volume-bar,
+#playback-speed,
+#full-screen {
+    background: transparent;
+    border: none;
+}
+.transcript {
+    margin: auto;
+    width: 90%;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1em;
+    text-align: center;
+}
