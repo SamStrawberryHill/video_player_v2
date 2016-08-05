@@ -10,13 +10,12 @@
   </head>
   <body>
     <header></header>
-    <div id="video-player" class="clearfix">
+    <div id="video-player">
       <video id="video">
         <source src="video/video.mp4" type="video/mp4">
         <source src="video/video.ogg" type="video/ogg">
-        <track id="captions" label="English" kind="subtitles" srclang="en" src="video/captions.vtt" default>
       </video>
-      <div class="progress" class="clearfix">
+      <div class="progress">
         <div id="buffer"></div>
         <div id="time"></div>
         <progress id="progress" max="100" value="0"></progress>
@@ -30,14 +29,12 @@
         </div>
         <div class="right-control">
             <button id="button-fullscreen" type="button" title="Fullscreen"></button>
-          <div id="volume-bar" title="Volume bar"></div>
-            <div id="volume-slide"></div>
         </div>
         <button id="volume-on" type="button" title="Volume on"></button>
         <button id="volume-off" type="button" title="Volume off"></button>
       </div>
     </div>
-    <div class="transcript" class="clearfix">
+    <div class="transcript">
       <p>
         Now that we've looked at the architecture
       of the internet, let's see how you might
@@ -102,6 +99,6 @@
     </div>
     <footer></footer>
     <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/apps.js"></script>
   </body>
 </html>
