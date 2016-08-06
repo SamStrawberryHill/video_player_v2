@@ -47,8 +47,8 @@ body {
   margin: -95px auto;
   z-index: 10000000000;
 }
-button#playpause,
-button#button-pause,
+button#play,
+button#pause,
 #time-current,
 #time-duration {
 	position: relative;
@@ -87,14 +87,14 @@ button#volume-off,
   top: 40px;
   float: right;
 }
-button#playpause {
+button#play {
   background: url(../images/icons/play-icon.png) no-repeat top left;
   height: 26px;
   width: 26px;
   border: none;
   left: 20px;
 }
-button#button-pause {
+button#pause {
   background: url(../images/icons/pause-icon.png) no-repeat top left;
   height: 26px;
   width: 26px;
