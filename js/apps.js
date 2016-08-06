@@ -1,7 +1,6 @@
 
 
 
-
 $('#play, #pause').click(function() {
 	playPauseVideo();
 });
@@ -39,17 +38,12 @@ function handleFullscreen() {
       else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
       else if (document.webkitCancelFullScreen) document.webkitCancelFullScreen();
       else if (document.msExitFullscreen) document.msExitFullscreen();
-      setFullscreenData(false);
    }
    else {
       if (videoContainer.requestFullscreen) videoContainer.requestFullscreen();
       else if (videoContainer.mozRequestFullScreen) videoContainer.mozRequestFullScreen();
       else if (videoContainer.webkitRequestFullScreen) videoContainer.webkitRequestFullScreen();
       else if (videoContainer.msRequestFullscreen) videoContainer.msRequestFullscreen();
-      setFullscreenData(true);
    }
-	 var isFullScreen = function() {
-   return !!(document.fullScreen || document.webkitIsFullScreen || document.mozFullScreen || document.msFullscreenElement || document.fullscreenElement);
-		}
 });
 }
