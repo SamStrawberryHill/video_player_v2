@@ -19,7 +19,7 @@ body {
 #video {
   width: 100%;
 }
-#video-player {
+#videoContainer {
 
   margin: 0 auto;
   background: #fff;
@@ -162,20 +162,7 @@ input[type="checkbox"] {
     height: 100%;
     background-color: rgba(156,153,153,1.00);
 }
-#volume-bar {
-  bottom: 10px;
-  width: 100px;
-  height: 26px;
-  background: rgba(0, 0, 0, 0.6);
-  float: right;
-  right: 30px;
-}
-#volume-slide {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(240,149,0,1.00);
-}
+
 /* Transcript */
 .transcript {
   padding-top: 100px;
