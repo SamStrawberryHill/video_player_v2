@@ -22,6 +22,15 @@ function playPauseVideo() {
 	}
 }
 //Volume On and Mute
+	var muted = document.getElementById('volume-off');
+	muted.onclick = function (){
+		if (video.muted === false) {
+			video.muted = true;
+		}
+		else {
+			video.muted = false;
+		}
+	}
 
 // Full Screen
 	var fullScreenEnabled = !!(document.fullscreenEnabled || document.mozFullScreenEnabled || document.msFullscreenEnabled || document.webkitSupportsFullscreen || document.webkitFullscreenEnabled || document.createElement('video').webkitRequestFullScreen);
