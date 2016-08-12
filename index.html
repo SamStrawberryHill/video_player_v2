@@ -16,9 +16,9 @@
           <source src="video/video.ogg" type="video/ogg">
         </video>
         <div class="progress">
-          <div id="buffer"></div>
-          <div id="time"></div>
-          <progress id="progress" max="100" value="0"></progress>
+          <progress id="progressBar" max="100" value="0">
+            <span></span>
+          </progress>
         </div>
         <div id="video-controls" class="controls" data-state="hidden">
           <div class="left-control">
@@ -30,8 +30,8 @@
           <div class="right-control">
               <button id="button-fullscreen" type="button" title="Fullscreen" data-state="go-fullscreen"></button>
           </div>
-          <button id="volume-on" type="button" title="Volume on" data-state="volume-on"></button>
-          <button id="volume-off" type="button" title="Volume off" data-state="mute"></button>
+          <button id="volumeOn" type="button" title="Volume on" data-state="volumeOn"></button>
+          <button id="volumeOff" type="button" title="Volume off" data-state="mute"></button>
         </div>
       </div>
       <div class="transcript">
