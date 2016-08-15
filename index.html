@@ -9,7 +9,7 @@
     <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
   </head>
   <body>
-    <header></header>
+    <header>How The Internet Works</header>
     <figure id="videoContainer">
         <video id="video">
           <source src="video/video.mp4" type="video/mp4">
@@ -21,81 +21,18 @@
           </progress>
         </div>
         <div id="video-controls" class="controls" data-state="hidden">
-          <div class="left-control">
-            <button id="play" type="button" title="Play" data-state="play"></button>
-            <button id="pause" type="button" title="Pause"></button>
-            <div id="time-current" title="Current time"><span class="time">0:00 /</span></div>
-            <div id="time-duration" title="Duration"><span class="time">0:00</span></div>
-          </div>
-          <div class="right-control">
-              <button id="button-fullscreen" type="button" title="Fullscreen" data-state="go-fullscreen"></button>
-          </div>
+          <button id="play" type="button" title="Play" data-state="play"></button>
+          <button id="pause" type="button" title="Pause"></button>
+          <div id="time-current" title="Current time"><span class="time">0:00 /</span></div>
+          <div id="time-duration" title="Duration"><span class="time">0:59</span></div>
+          <button id="button-fullscreen" type="button" title="Fullscreen" data-state="go-fullscreen"></button>
           <button id="volumeOn" type="button" title="Volume on" data-state="volumeOn"></button>
           <button id="volumeOff" type="button" title="Volume off" data-state="mute"></button>
         </div>
       </div>
       <div class="transcript">
-        <p>
-          Now that we've looked at the architecture
-        of the internet, let's see how you might
-        </p>
-        <p>
-          connect your personal devices to
-          the internet inside your house.
-        </p>
-        <p>
-        Well there are many ways to
-        connect to the internet, and
-        </p>
-        <p>
-        most often people connect wirelessly.
-        </p>
-        <p>
-        Let's look at an example of how
-        you can connect to the internet.
-        </p>
-        <p>
-        If you live in a city or a town,
-        you probably have a coaxial cable for
-        </p>
-        <p>
-        cable Internet, or a phone line if you
-        have DSL, running to the outside of
-        </p>
-        <p>
-        your house, that connects you to
-        the Internet Service Provider, or ISP.
-        </p>
-        <p>
-        If you live far out in the country,
-        you'll more likely have
-        </p>
-        <p>
-        a dish outside your house, connecting
-        you wirelessly to your closest ISP, or
-        </p>
-        <p>
-        you might also use the telephone system.
-        </p>
-        <p>
-        Whether a wire comes straight from
-        the ISP hookup outside your house, or
-        </p>
-        <p>
-        it travels over radio
-        waves from your roof,
-        </p>
-        <p>
-        the first stop a wire will make once
-        inside your house, is at your modem.
-        </p>
-        <p>
-        A modem is what connects the internet
-        to your network at home.
-        </p>
-        <p>
-        A few common residential modems are DSL or
-        </p>
+        <p id="text-transcript"></p>
+      </div>
     </figure>
     <footer></footer>
     <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
