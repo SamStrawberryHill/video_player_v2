@@ -34,16 +34,15 @@ body {
   max-height: 450px;
 }
 .clearfix:after {
-     visibility: hidden;
-     display: block;
-     font-size: 0;
-     content: " ";
-     clear: both;
-     height: 0;
-     }
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
 
 /* Controls */
-
 #video-controls {
   position: static;;
   background: transparent;
@@ -54,7 +53,6 @@ body {
   margin: -95px auto;
   z-index: 10000000000;
 }
-
 button#play,
 button#pause,
 #time-current,
@@ -63,7 +61,6 @@ button#pause,
 	top: 40px;
   float: left;
 }
-
 #time-duration {
   margin-left: 5px;
   -webkit-touch-callout: none;
@@ -71,18 +68,14 @@ button#pause,
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none;
 }
-
 #time-current {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none;
 }
-
 button#button-fullscreen,
 button#volumeOn,
 button#volumeOff {
@@ -105,7 +98,6 @@ button#pause {
   display: none;
   left: 20px;
 }
-
 button#button-fullscreen {
   background: url(../images/icons/fullscreen-icon.png) no-repeat top left;
   height: 26px;
@@ -128,7 +120,6 @@ button#volumeOff {
   right: 40px;
   display: none;
 }
-
 #time-current,
 #time-duration {
 	color: #fff;
@@ -138,32 +129,36 @@ button#volumeOff {
 	left: 45px;
 }
 .progress {
-    position: relative;
-	  margin: 0 2.5% 0 2.5%;
-    width: 95%;
-    height: 5px;
-	  bottom: 70px;
-    background: grey;
+  position: relative;
+  margin: 0 2.5% 0 2.5%;
+  width: 95%;
+  height: 5px;
+  bottom: 70px;
+  background: grey;
 }
 #progressBar {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: grey;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: grey;
 }
 progress#progressBar[value]::-webkit-progress-value {
   background: orange;
 }
+progress#progressBar[value]::-moz-progress-bar{
+  background: orange;
+}
 
 /* Transcript */
-.transcript {
+
+#text-transcript {
+  margin: auto;
+  width: 90%;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1em;
+  text-align: center;
   padding-top: 100px;
 }
-.transcript p {
-    margin: auto;
-    width: 90%;
-    font-family: 'Nunito', sans-serif;
-    font-size: 1em;
-    text-align: center;
-    padding-top: 15px;
+.active-cue {
+  color: #05E9FF;
 }

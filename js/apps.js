@@ -1,22 +1,38 @@
 
 //Event Handling
+var video = document.getElementById('video');
+
 $('#play, #pause').click(function() {
 	playPauseVideo();
 });
+$('#play').click(function() {
+	$('#video-controls').hide();
+	$('#text-transcript').css('padding-top', 0);
+	$('#text-transcript').css('margin-top', -10);
+});
+$('#videoContainer').mouseenter(function(){
+	$('#video-controls').show();
+	$('#text-transcript').css('padding-top', 100);
+});
+$('#videoContainer').mouseleave(function(){
+	if (!video.paused){
+		$('#video-controls').hide();
+		$('#text-transcript').css('padding-top', 0);
+	}
+});
+
 $('#button-fullscreen').click(function(){
 	handleFullscreen();
 });
-volumeOn.addEventListener('click', function() {
+document.getElementById('volumeOn').addEventListener('click', function() {
 	muteVideo();
 });
-volumeOff.addEventListener('click', function() {
+document.getElementById('volumeOff').addEventListener('click', function() {
 	muteVideo();
 });
-
 
 // Function for play video and change button to pause
 function playPauseVideo() {
-	var video = document.getElementById('video');
 	if (video.paused) {
 		video.play();
 		$('#play').css('display', 'none');
@@ -29,8 +45,8 @@ function playPauseVideo() {
 }
 //Volume On and Mute
 function muteVideo() {
-   video.muted = !video.muted;
-	 if (video.muted) {
+	video.muted = !video.muted;
+	if (video.muted) {
 		$('#volumeOn').css('display', 'none');
 		$('#volumeOff').css('display', 'inline-block');
 	}
@@ -43,19 +59,19 @@ function muteVideo() {
 // Full Screen
 var fullScreenEnabled = !!(document.fullscreenEnabled || document.mozFullScreenEnabled || document.msFullscreenEnabled || document.webkitSupportsFullscreen || document.webkitFullscreenEnabled || document.createElement('video').webkitRequestFullScreen);
 if (!fullScreenEnabled) {
-	fullscreen.style.display = 'none';
+	document.getElementById('fullscreen').style.display = 'none';
 }
 function handleFullscreen() {
 	var isFullScreen = function() {
 		return !!(document.fullScreen || document.webkitIsFullScreen || document.mozFullScreen || document.msFullscreenElement || document.fullscreenElement);
-	}
+	};
 	if (isFullScreen()) {
 		if (document.exitFullscreen) document.exitFullscreen();
 		else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
 		else if (document.webkitCancelFullScreen) document.webkitCancelFullScreen();
 		else if (document.msExitFullscreen) document.msExitFullscreen();
 	} else {
-		if (videoContainer.requestFullscreen) video.requestFullscreen();
+		if (document.getElementById('videoContainer').requestFullscreen) video.requestFullscreen();
 		else if (video.mozRequestFullScreen) video.mozRequestFullScreen();
 		else if (video.webkitRequestFullScreen) video.webkitRequestFullScreen();
 		else if (video.msRequestFullscreen) video.msRequestFullscreen();
@@ -63,18 +79,20 @@ function handleFullscreen() {
 }
 //Implement the playback progress control.
 //As the video plays the playback bar should fill in.
-var video = document.getElementById('video');
 var pBar = document.getElementById('progressBar');
+
 video.addEventListener('timeupdate', function() {
 	var percent = Math.floor((100 / video.duration) * video.currentTime);
 	pBar.value = percent;
 	pBar.getElementsByTagName('span')[0].innerHTML = percent;
 }, false);
+
 video.addEventListener('loadedmetadata', function() {
 	duration();
 //Update Video Duration Text with video duration
 document.getElementById("time-duration").innerHTML = duration();
 });
+
 //Event listener for end of video to set back to start
 video.addEventListener("timeupdate", function(event) {
 if (video.currentTime == video.duration) {
@@ -82,12 +100,14 @@ if (video.currentTime == video.duration) {
 	video.currentTime = 0;
 	}
 });
+
 //A user should be able to click anywhere on the playback bar to jump to that part of the video
 pBar.addEventListener("click", function(event) {
 	var barClick = event.offsetX / this.offsetWidth;
 	video.currentTime = barClick * video.duration;
 	pBar.value = barClick / 100;
 });
+
 //As the video plays the current time should be displayed and updated
 function currentTime() {
 	var video = document.getElementById("video");
@@ -98,10 +118,12 @@ function currentTime() {
 	}
 	return minutes + ":" + seconds;
 }
+
 //Update Video Timer Text with current time
 video.ontimeupdate = function() {
 	document.getElementById("time-current").innerHTML = currentTime();
 };
+
 //Get Video Duration in min/sec
 function duration() {
 	var video = document.getElementById("video");
@@ -110,8 +132,10 @@ function duration() {
 	return minutes + ":" + seconds;
 }
 //Use Javascript or CSS to hide and show the video player button on mouse hover states. Only the progress bar should remain.
+
 //Transcript
 var textTranscript = document.getElementById("text-transcript");
+
 var syncTranscript = [
 	{"start": "0.01","end": "7.535","text": "Now that we've looked at the architecture of the internet, let's see how you might connect your personal devices to the internet inside your house."},
 	{"start": "7.536","end": "13.960","text": "Well there are many ways to connect to the internet, and most often people connect wirelessly."},
@@ -122,7 +146,9 @@ var syncTranscript = [
 	{"start": "53.761","end": "57.780","text": "A modem is what connects the internet to your network at home."},
 	{"start": "57.781","end": "59.000","text": "A few common residential modems are DSL or..."}
 ];
-	createTranscript();
+
+createTranscript();
+
 function createTranscript() {
 	var element;
 	for (var i = 0; i < syncTranscript.length; i++) {
@@ -134,3 +160,16 @@ function createTranscript() {
 }
 //As the media playback time changes, sentences in the transcript should highlight.
 //Use JavaScript to listen for those changes and apply a highlight to the appropriate sentence.
+// function highlightText
+video.addEventListener("timeupdate", function(e) {
+	syncTranscript.forEach(function(element, index, array){
+		if( video.currentTime >= element.start && video.currentTime <= element.end ){
+			textTranscript.children[index].classList.remove("inactive-cue");
+			textTranscript.children[index].classList.add("active-cue");
+				if (video.currentTime < element.start || video.currentTime > element.end) {
+					textTranscript.children[index].classList.remove("active-cue");
+					textTranscript.children[index].classList.add("inactive-cue");
+				}
+			}
+		});
+});
