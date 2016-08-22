@@ -5,11 +5,6 @@ var video = document.getElementById('video');
 $('#play, #pause').click(function() {
 	playPauseVideo();
 });
-$('#play').click(function() {
-	$('#video-controls').hide();
-	$('#text-transcript').css('padding-top', 0);
-	$('#text-transcript').css('margin-top', -10);
-});
 $('#videoContainer').mouseenter(function(){
 	$('#video-controls').show();
 	$('#text-transcript').css('padding-top', 100);
@@ -164,12 +159,10 @@ function createTranscript() {
 video.addEventListener("timeupdate", function(e) {
 	syncTranscript.forEach(function(element, index, array){
 		if( video.currentTime >= element.start && video.currentTime <= element.end ){
-			textTranscript.children[index].classList.remove("inactive-cue");
 			textTranscript.children[index].classList.add("active-cue");
-				if (video.currentTime < element.start || video.currentTime > element.end) {
-					textTranscript.children[index].classList.remove("active-cue");
-					textTranscript.children[index].classList.add("inactive-cue");
-				}
-			}
-		});
+		}
+		if (video.currentTime < element.start || video.currentTime > element.end) {
+			textTranscript.children[index].classList.remove("active-cue");
+		}
+	});
 });
